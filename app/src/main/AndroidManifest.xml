@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.fao.sola.clients.android.opentenure" >
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:name="org.fao.sola.clients.android.opentenure.OpenTenureApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/sola_logo"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <uses-library android:name="com.google.android.maps" />
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="org.fao.sola.clients.android.opentenure.SplashScreen"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.fao.sola.clients.android.opentenure.form.ui.SectionElementActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Opentenure"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="org.fao.sola.clients.android.opentenure.InitializationActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Opentenure"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="org.fao.sola.clients.android.opentenure.OpenTenure"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Opentenure"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="org.fao.sola.clients.android.opentenure.ClaimActivity"
+            android:icon="@drawable/sola_logo"
+            android:label="@string/title_activity_claim"
+            android:theme="@style/Theme.Opentenure"
+            android:windowSoftInputMode="stateVisible|adjustResize|adjustPan" >
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.fao.sola.clients.android.opentenure.OpenTenure" />
+        </activity>
+        <activity
+            android:name="org.fao.sola.clients.android.opentenure.PersonActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_person"
+            android:theme="@style/Theme.Opentenure" >
+        </activity>
+        <activity
+            android:name="org.fao.sola.clients.android.opentenure.SelectClaimActivity"
+            android:label="@string/title_activity_select_claim"
+            android:theme="@style/Theme.Opentenure"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="org.fao.sola.clients.android.opentenure.SelectPersonActivity"
+            android:label="@string/title_activity_select_person"
+            android:theme="@style/Theme.Opentenure"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="org.fao.sola.clients.android.opentenure.SelectBookmarkActivity"
+            android:label="@string/title_activity_select_bookmark"
+            android:theme="@style/Theme.Opentenure"
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
+        <activity
+            android:name="org.fao.sola.clients.android.opentenure.ShareDetailsActivity"
+            android:label="@string/title_activity_share_details"
+            android:theme="@style/Theme.Opentenure"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
+        </activity>
+        <activity
+            android:name="org.fao.sola.clients.android.opentenure.OpenTenurePreferencesActivity"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/Theme.Opentenure" >
+        </activity>
+        <activity
+            android:name="org.fao.sola.clients.android.opentenure.network.LoginActivity"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
+        </activity>
+        <activity
+            android:name="com.ipaulpro.afilechooser.FileChooserActivity"
+            android:enabled="@bool/use_activity"
+            android:exported="true"
+            android:icon="@drawable/ic_action_attachment"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.GET_CONTENT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.OPENABLE" />
+
+                <data android:mimeType="*/*" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
